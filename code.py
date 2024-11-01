@@ -42,10 +42,12 @@ axes[1, 0].set_title('S. alba', fontstyle='italic')
 # Plot for genome size vs. RGA count with regression line and legend
 sns.scatterplot(x=genome_sizes, y=rga_counts, hue=species, palette='viridis', s=100, ax=axes[1, 1])
 sns.regplot(x=genome_sizes, y=rga_counts, scatter=False, color='red', ax=axes[1, 1])
-axes[1, 1].set_xlabel('Genome Size (MB)')
+axes[1, 1].set_xlabel('Genome size (MB)')
 axes[1, 1].set_ylabel('Total RGA count')
-axes[1, 1].set_title('RGA Count vs Genome Size')
-axes[1, 1].legend(title='Species')
+# axes[1, 1].set_title('RGA Count vs Genome Size')
+legend = axes[1, 1].legend(title='Species')
+for text in legend.get_texts(): text.set_fontstyle('italic')
+
 axes[1, 1].set_ylim(1200, 2000)  # Set y-axis limit
 # Add a common title for the entire figure
 # fig.suptitle('Relationship between chromosome and genome size with RGA numbers', fontsize=16)
